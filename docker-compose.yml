@@ -17,7 +17,7 @@ services:
     ports:
       - "5000:5000"
   gitea:
-    image: gitea/gitea:latest
+    build: gitea
     container_name: gitea
     environment:
       - USER_UID=1000
