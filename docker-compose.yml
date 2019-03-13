@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 services:
   portainer:
@@ -6,26 +6,43 @@ services:
     container_name: portainer
     restart: always
     ports:
-    - "9000:9000"
+      - "9000:9000"
     volumes:
-    - /var/run/docker.sock:/var/run/docker.sock
-    - portainer_data:/data     
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
   registry:
     image: registry:2
     container_name: registry
     restart: always
     ports:
-    - "5000:5000"
-  registry-ui:
-    image: joxit/docker-registry-ui
-    container_name: registry-ui
-    restart: always
-    ports:
-    - "80:80"
+      - "5000:5000"
+  server:
+    image: gitea/gitea:latest
     environment:
-     - URL=http://127.0.0.1:5000
-     - DELETE_IMAGES=true
-     - REGISTRY_TITLE="DockPi registry"
-    
+      - USER_UID=1000
+      - USER_GID=1000
+    restart: always
+    networks:
+      - gitea
+    volumes:
+      - ./gitea:/data
+    ports:
+      - "3000:3000"
+      - "222:22"
+  # registry-ui:
+  #   image: joxit/docker-registry-ui
+  #   container_name: registry-ui
+  #   restart: always
+  #   ports:
+  #   - "80:80"
+  #   environment:
+  #    - URL=http://127.0.0.1:5000
+  #    - DELETE_IMAGES=true
+  #    - REGISTRY_TITLE="DockPi registry"
+
 volumes:
   portainer_data:
+
+networks:
+  gitea:
+    external: false
