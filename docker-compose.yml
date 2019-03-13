@@ -16,6 +16,16 @@ services:
     restart: always
     ports:
     - "5000:5000"
+  registry-ui:
+    image: joxit/docker-registry-ui:static
+    container_name: registry-ui
+    restart: always
+    ports:
+    - "80:80"
+    environment:
+     - URL=http://127.0.0.1:5000
+     - DELETE_IMAGES=true
+     - REGISTRY_TITLE="DockPi registry"
     
 volumes:
   portainer_data:
