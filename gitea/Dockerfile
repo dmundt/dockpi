@@ -11,7 +11,7 @@ VOLUME ["/data"]
 ENTRYPOINT ["/usr/bin/entry.sh", "/usr/bin/entrypoint"]
 CMD ["/bin/s6-svscan", "/etc/s6"]
 
-RUN [ "cross-build-start" ]
+# RUN [ "cross-build-start" ]
 
 ## GITEA RELEASE VERSION
 ARG VERSION=1.7.0-rc2
@@ -50,4 +50,4 @@ RUN mkdir -p /app/gitea && \
     curl -SLo /app/gitea/gitea https://github.com/go-gitea/gitea/releases/download/v$VERSION/gitea-$VERSION-linux-arm-7 && \
     chmod 0755 /app/gitea/gitea
 
-RUN [ "cross-build-end" ]
+# RUN [ "cross-build-end" ]
