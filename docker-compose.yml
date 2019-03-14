@@ -48,7 +48,7 @@ services:
 volumes:
   gitea_data:
   portainer_data:
-  registry_data
+  registry_data:
 
 networks:
   gitea:
