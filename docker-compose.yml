@@ -18,6 +18,7 @@ services:
       - "5000:5000"
   gitea:
     build: gitea
+    image: dmundt/gitea:1.7.4
     container_name: gitea
     environment:
       - USER_UID=1000
