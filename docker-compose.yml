@@ -30,7 +30,7 @@ services:
       - gitea_data:/data
     ports:
       - "3000:3000"
-      - "222:22"
+      - "49100:22"
       
   # registry-ui:
   #   image: joxit/docker-registry-ui
