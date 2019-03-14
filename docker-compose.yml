@@ -26,10 +26,11 @@ services:
     networks:
       - gitea
     volumes:
-      - ./gitea:/data
+      - gitea_data:/data
     ports:
       - "3000:3000"
-      - "222:22"
+      - "22:22"
+      
   # registry-ui:
   #   image: joxit/docker-registry-ui
   #   container_name: registry-ui
@@ -43,6 +44,7 @@ services:
 
 volumes:
   portainer_data:
+  gitea_data:
 
 networks:
   gitea:
