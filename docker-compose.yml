@@ -16,6 +16,8 @@ services:
     restart: always
     ports:
       - "5000:5000"
+    volumes:
+      - registry_data:/data
   gitea:
     build: gitea
     image: dmundt/gitea
@@ -44,8 +46,9 @@ services:
   #    - REGISTRY_TITLE="DockPi registry"
 
 volumes:
-  portainer_data:
   gitea_data:
+  portainer_data:
+  registry_data
 
 networks:
   gitea:
