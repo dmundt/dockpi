@@ -18,30 +18,21 @@ services:
       - "5000:5000"
     volumes:
       - registry_data:/data
-  gogs:
-    image: gogs/gogs
-    container_name: gogs
+  gitea:
+    build: gitea
+    image: dmundt/gitea
+    container_name: gitea
+    environment:
+      - USER_UID=1000
+      - USER_GID=1000
     restart: always
-    ports:
-      - "10022:22"
-      - "3000:3000"
+    networks:
+      - gitea
     volumes:
-      - gogs_data:/data
-  # gitea:
-  #   build: gitea
-  #   image: dmundt/gitea
-  #   container_name: gitea
-  #   environment:
-  #     - USER_UID=1000
-  #     - USER_GID=1000
-  #   restart: always
-  #   networks:
-  #     - gitea
-  # #   volumes:
-  #     - gitea_data:/data
-  #   ports:
-  #     - "3000:3000"
-  #     - "12022:22"
+      - gitea_data:/data
+    ports:
+      - "3000:3000"
+      - "12022:22"
       
   # registry-ui:
   #   image: joxit/docker-registry-ui
@@ -56,7 +47,6 @@ services:
 
 volumes:
   gitea_data:
-  gogs_data:
   portainer_data:
   registry_data:
 
