@@ -1,4 +1,4 @@
-FROM balenalib/armvhf-alpine:latest
+FROM balenalib/raspberry-pi:latest
 
 EXPOSE 22 3000
 
