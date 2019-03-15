@@ -1,4 +1,4 @@
-FROM balenalib/armv7hf-alpine:latest
+FROM balenalib/armv6hf-alpine:latest
 
 EXPOSE 22 3000
 
