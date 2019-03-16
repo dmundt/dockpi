@@ -47,7 +47,7 @@ RUN curl -SL  https://github.com/go-gitea/gitea/archive/v$VERSION.tar.gz | \
 
 ## GET GITEA
 RUN mkdir -p /app/gitea && \
-    curl -SLo /app/gitea/gitea https://github.com/go-gitea/gitea/releases/download/v$VERSION/gitea-$VERSION-linux-arm-6 && \
+    curl -SLo /app/gitea/gitea https://github.com/go-gitea/gitea/releases/download/v$VERSION/gitea-$VERSION-linux-arm-7 && \
     chmod 0755 /app/gitea/gitea
 
 # RUN [ "cross-build-end" ]
