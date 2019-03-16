@@ -36,10 +36,10 @@ services:
     ports:
       - "3000:3000"
       - "12022:22"
-  backup:
-    build: volume-backup
-    image: dmundt/volume-backup
-    container_name: backup
+  # backup:
+  #   build: volume-backup
+  #   image: dmundt/volume-backup
+  #   container_name: backup
       
   # registry-ui:
   #   image: joxit/docker-registry-ui
