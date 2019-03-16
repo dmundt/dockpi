@@ -24,8 +24,7 @@ services:
     container_name: gitea
     environment:
       - RUN_MODE=prod
-      - SSH_DOMAIN=titan
-      - SSH_PORT=12022
+      - DISABLE_SSH=true
       - USER_UID=1000
       - USER_GID=1000
     restart: always
