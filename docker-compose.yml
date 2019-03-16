@@ -23,11 +23,12 @@ services:
     image: dmundt/gitea
     container_name: gitea
     environment:
+      - RUN_MODE=prod
+      - SSH_DOMAIN=titan
+      - SSH_PORT=12022
       - USER_UID=1000
       - USER_GID=1000
     restart: always
-    networks:
-      - gitea
     volumes:
       - gitea_data:/data
     ports:
@@ -49,7 +50,3 @@ volumes:
   gitea_data:
   portainer_data:
   registry_data:
-
-networks:
-  gitea:
-    external: false
